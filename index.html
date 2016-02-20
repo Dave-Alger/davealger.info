@@ -1,23 +1,186 @@
+
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>davealger.info</title>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+<link href="resume.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<input id="all_css" type="hidden"></input>
+<script>
+/* 
+** A special thanks goes out to Jake Albaugh ( and pen#PwLXXP )
+**
+** As far as I know, Jake was the one who discovered the robot-like personality
+** which emerges when css code is injected into the DOM character by character.
+** 
+** Here is a nice article by Jake discussing this technique...
+** http://codepen.io/jakealbaugh/blog/self-coding-pens-and-finding-joy-in-useless-code
+** 
+*/
+(function() {
+var isCommentOpen = false;
+var css_code = '\/* \n * Resume of a UX Developer  (v1.5)     \n * Robot rights protected under BOT License     \n * Last updated  2015-09-04\n *\/\n \nbody {\n  color: white;  background-color: navy;\n  font-size: 16px;\n  line-height: 1.4;\n}     \n\n\/* ... Is someone there?                                                                       \n *                                                                                           \n * Oh, hello.  Nice to meet you!\n * I\'m the Resume of a fun and creative UX Developer named Dave Alger.\n *                            \n * Dave lets me style myself by placing CSS inside of a <pre> tag  \n * while simultaneously injecting it into a DOM <style> element.\n *                                          \n * ... What\'s that?\n *                                                             \n * Oh, I don\'t mind.  People watch me get dressed all the time... enjoy!                 \n *\/\n \n                                                 \n\/* configuring development environment *\/\n* { transition: all 500ms; }\npre { \n  font-size: 12px;\n  overflow-y: scroll;\n  overflow-x: hidden;\n  position: fixed; width: 38%;\n  top: 10px; bottom: 60px; left: 26%;\n  background-color: #293134; color: #E0E2E4;\n  padding: 12px;\n  box-sizing: border-box;\n}\n\n\n\/* syntax highlighting based on Eclipse Obsidian by Morinar *\/\npre em:not(.comment) { font-style: normal; }\n.comment       { color: #8D9CA3; }\n.selector      { color: #93C763; }\n.selector .key { color: #93C763; }\n.key           { color: #A082BD; }\n.value         { color: #EFB571; }\n\n\n\/* push this <pre> element off to the side (or top of small screens) *\/\npre { \n  transition: left 1000ms;\n  left: 60%; \n}\n\n@media (max-width: 1200px) { pre { font-size: 16px; top: 0; left: 0; height: 140px; width: 100%; border: 0; margin: 0; } }\n\n\n\/* lighten the stage where the resume content will go *\/\nbody {\n  font-family: \'Open Sans\', sans-serif;\n  font-size: 16px;\n  -webkit-font-smoothing: subpixel-antialiased;\n  background-color: #DADADA;  \/* DA === the initials of my developer *\/\n  color: #444444;             \/* 4 === Dave\'s favorite number *\/\n}\n\n\n\/* create a card to put the resume content on *\/\n#content {\n  margin: 24px auto 76px auto;\n  max-width: 900px;\n  min-height: 200px;\n  padding: 12px 12px 12px 24px;\n  background: #fff;\n  box-shadow: 12px 12px 42px #bbb;  \/* 42 === MY favorite number *\/\n}\n\n@media (max-width: 1200px) { #content { margin-top: 160px; } }\n\n\n\/* add the name of my pretty okay developer *\/\n#name::before {\n  content: \'dave alger\';\n  font-size: 48px;\n  font-weight: 300;\n  color: #777;  \/* Lucky 7s because Dave === jackpot! *\/\n  text-transform: capitalize;\n  white-space: nowrap;\n}\n\n\n\/* \n * Dave\'s contact info is !important so I\'ll put it up top \n *\n *          *****************\n *          *  I <3 MY DEV  *\n *          *****************\n * \n * REMEMBER to call Dave -- HE IS SUPER NICE TO ROBOTS AND PEOPLE! \n *\n *\/\n#contact-info {\n  display: block !important;\n}\n\n\n\/* Summary of Dave in a nutshell ... Help! I\'m in a nutshell AHHHHH! *\/\n#profile-summary-block {\n  display: block !important;\n  margin-right: 20px;\n}\n\n\n\/* float a picture of Dave off to the right *\/\n#head-shot {\n  display: inline-block !important;                                                 \n  float: right;\n  margin: 20px;\n}\n\n\n\/* show list of Dave\'s primary skills *\/\n#technical-skills-header {\n  display: block !important;\n}\n#technical-skills-header::before {\n  content: \'Technical Skills\';\n}\n#technical-skills-block {\n  display: block !important;\n}\n\n.shine { \n  transition: text-shadow 1200ms;\n  color: #a70; \n  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff; \n}\n.shine:hover {  \n  text-shadow: 0 0 24px #da0, 0 0 24px #da0, 0 0 24px #da0;\n}\n\n#tech-skills-chart {\n  margin: 14px 20px 0 36px;\n}\n.barchart{\n  position: relative;\n  width: 400px;\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  background: #eee;\n  overflow: hidden;\n  margin: 1em 0;\n}\n.barchart li{\n  width: 18px;\n  float: left;\n  display: block;\n  background: #ccc;\n  height: 30px;\n  margin: 0;\n  padding: 10px 0 0 10px;\n  border: 1px solid #eee;\n  border-right-width: 0;\n  border-left: none;\n  border-bottom: none;\n  white-space: nowrap;\n}\n.barchart li:hover{\n  background: #aaa;\n  border-color: #ddd;\n  cursor: default;\n}\n\n\n\/* show what Dave has been working on *\/\n#work-experience-header {\n  display: block !important;\n}\n#work-experience-header::before {\n  content: \'Work Experience\';\n}\n#work-experience-block {\n  display: block !important;\n}\n\n.work-header { \n  background-color: #444;\n  color: #dadada; \n}\n\n.project-line { \n  background-color: #f0f0f0;\n  margin-top: 20px;\n}\n\n\n\/* show my developer\'s LinkedIn profile for additional details *\/\n#references-header {\n  display: block !important;\n}\n#references-header::before {\n  content: \'Peer Reviews\';\n}\n#references-block {\n  display: block !important;\n}\n                                                                    \n                                                                    \n\/* add videos of things Dave helped create *\/\n.video-overview { \n  display: inline-block !important; \n}\n\n\n\/* \n * ... Phew!                                                                     \n *                                                     \n * It\'s hard work being the resume of a web developer!           \n *                         \n * HELP ME OUT!  Tweet @DaveAlger and tell him you <3 his ROBOT RESUME!\n * ...also tell him to rub my belly. \n * \n *\/\n                                                                    \n                                                                     \n\/* on second thought, nobody puts a picture on their resume any more... *\/\n#head-shot { display: none !important; }\n\n\n\/* \n * Sometimes I feel compelled to tell my developer...\n * \n * "I\'m sorry Dave, I\'m afraid I can\'t do that."\n * \n * ... though I\'m not really sure why\n *         \n *\/ \n\n\n#thanks-for-visiting-see-you-again-soon { transition-duration: 2weeks; }\n\n';
+$('#all_css').val(css_code);
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="http://davealger.info">davealger.info</a></h1>
-      </header>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
+var html_elements = '';
+html_elements += '<div id="res_wrap" style="width:58%;"><div id="content">';
+html_elements += '<div class="table"><div class="tr"><div class="td"><img id="head-shot" src="dave.png" class="hideme"/><span id="name"></span><br/><div id="contact-info" class="hideme"><div class="txtlight"><span class="tLabel">Phone:&nbsp;</span> (512)&nbsp;738-5551</div><div class="txtlight"><span class="tLabel">Email:</span> <a href="mailto:me@davealger.com?subject=Awesome job opportunity!">me@<span style="color: #777;">dave</span>alger.com</a></div><div class="txtlight"><span class="tLabel">Website:&nbsp;</span> <a href="http://davealger.com"><span style="color: #777;">dave</span>alger.com</a></div></div><br/>';
+html_elements += '<div id="profile-summary-header" class="section-header"></div><div id="profile-summary-block" class="hideme rule-after"><div>My passion is creating pixel perfect user interfaces and compelling user experiences on the web and on mobile devices.&nbsp; I code for fun in my spare time and enjoy staying on the cutting edge of technology.&nbsp; I\'ve been an integral part of designing, building and testing award winning software for over 18 years and currently work at <a href="http://solarwinds.com">SolarWinds</a> as a Senior Web Applications Developer.</div></div></div></div>';
+html_elements += '</div>';
+html_elements += '<div id="technical-skills-header" class="section-header"></div><div id="technical-skills-block" class="hideme rule-after">';
+html_elements += '<div class="table"><div class="tr"><div class="td"><div style="margin-top:14px;">I\'ve acquired many technical skills over the years but my inner artist usually finds a way to <span class="shine">shine</span> through.&nbsp; My dream job is one where I can continue to develop my <a href="http://www.w3.org/TR/html5/">HTML5</a> skills while designing clean and simple user interfaces which are functional in spite of the browser being used.</div><div style="margin-top:14px;">Although I excel in creating beautiful web interfaces, my skills aren\'t limited to front end development.&nbsp; I have worked with and designed massive data warehouses through the years and find satisfaction in turning terabytes of data into beautiful business intelligence charts and reports.&nbsp; Data, afterall, is only useful once it has been liberated from the backend and can be easily understood by us humans.</div></div><div style="width:300px;vertical-align: top;" class="td"><div id="tech-skills-chart"><ul class="barchart" style="width:300px;height:206px"><li style="width:250px;border-right-width:50px"><span>UX Design / Web Interactions</span></li><li style="width:200px;border-right-width:100px"><span>Information Architecture</span></li><li style="width:230px;border-right-width:70px"><span>Responsive Design / Mobile UI</span></li><li style="width:280px;border-right-width:20px"><span>HTML 5 / JavaScript / CSS3</span></li><li style="width:250px;border-right-width:50px"><span>jQuery / jQuery UI</span></li></ul></div></div></div></div>';
+html_elements += '</div>';
+html_elements += '<div id="work-experience-header" class="section-header"></div><div id="work-experience-block" class="hideme rule-after">';
+html_elements += '<div class="table" style="margin-top: 14px;"><div class="tr work-header"><div class="td company big">SolarWinds</div><div class="td range big">2006 - 2015</div></div></div><div class="table project-line"><div class="tr"><div class="td project">Angular UI</div><div class="td range">2014 - 2015</div></div></div><div class="table"><div class="tr"><div class="td jobdesc">I am currently working on the next big thing from SolarWinds.&nbsp; Although I can\'t share any specific details right now -- I can say that I\'m heads down in the AngularJS world helping to build a new library of custom directives and UI components that are easy to use and lightning fast!<ul><li>Check back later to find out more about this awesome new product from SolarWinds once it releases!</li></ul></div><div class="td"><div class="video-overview"><iframe width="336" height="190" src="https://www.youtube.com/embed/R32RYrd9oJY" frameborder="0" allowfullscreen></iframe></div></div></div></div>';
+html_elements += '<div class="table project-line"><div class="tr"><div class="td project">SolarWinds Quality of Experience (Deep Packet Inspection)</div><div class="td range">2013 - 2014</div></div></div><div class="table"><div class="tr"><div class="td jobdesc">I helped design and implement a new feature in SolarWinds flagship product which helps IT professionals answer the age old question, "Is it the application or the network?".&nbsp; Users can choose to monitor any number of applications and see things like "How much of all the traffic on my network is Skype?" and "What\'s the time to first byte on the SQL server?"<ul><li>Came up with a way to ship with nearly 1200 applications pre-configured out of the box.</li><li>Developed a responsive charting mechanism to clearly show any size data on any size dashboard.</li></ul></div><div class="td"><div class="video-overview"><iframe width="336" height="190" src="https://www.youtube.com/embed/7Qyn0NIuNC8" frameborder="0" allowfullscreen></iframe></div></div></div></div>';
+html_elements += '<div class="table project-line"><div class="tr"><div class="td project">SolarWinds Alert Central</div><div class="td range">2012 - 2013</div></div></div><div class="table"><div class="tr"><div class="td jobdesc">I took on the role of Front End Development Lead for a new HTML 5 application called <a href="http://swalertcentral.com">Alert Central</a> in March of 2012.&nbsp; This product was designed to solve a problem that almost every single IT organization has to deal with on a daily basis; Getting alert emails to the right people, on the right team, at the right time.&nbsp; Starting with zero lines of code, I was able to help architect and prove out early SPA prototypes using Sencha\'s extjs 4.0 framework.&nbsp; Leading a small team of 3 developers, I either wrote or reviewed 100% of the Alert Central UI code base.&nbsp; The end result is a single page web application that is not only beautiful but also performs well in any browser.<ul><li>Alert Central is easy to deploy as a virtual appliance so <a href="http://swalertcentral.com">download it for free</a> and try it out!</li><li>One of our early adopters <a href="https://twitter.com/livearchivist/status/309722647502139392">tweeted this</a> which made the attention to detail on Alert Central worth it:  "@solarwinds When are you guys gonna build a beautiful UI like on Alert Central into NPM?"</li></ul></div><div class="td"><div class="video-overview"><iframe width="336" height="190" src="http://www.youtube.com/embed/p2E-3EaIN2k" frameborder="0" allowfullscreen=""></iframe></div></div></div></div>';
+html_elements += '<div class="table project-line"><div class="tr"><div class="td project">SolarWinds Log &amp; Event Manager</div><div class="td range">2006 - 2012</div></div></div>';
+html_elements += '<div class="table"><div class="tr"><div class="td jobdesc">In March of 2006, I started work as part of a small but amazing engineering team at a private company called TriGeo Network Security.&nbsp; During that time I helped design and build one of the best Security Information Management systems on the market.&nbsp; We won multiple awards from SC Magazine and were ultimately acquired by SolarWinds in July of 2011.&nbsp; In my role as Senior Developer, I spent most of my time writing low level ActionScript code to bend the Flex framework past its limitations.&nbsp; I love making components that are both beautiful as well as performant.<ul><li>"For its power and simplicity" our product won <a href="http://www.scmagazine.com/trigeo-security-information-manager-sim/review/3268/">SC Magazine\'s "Best Buy" Award</a> in 2010</li><li>I was the sole front end developer for the company\'s Business Intelligence product known as <a href="whitepaper_insight.pdf">InSight</a>.</li><li>One of three core UI developers for <a href="whitepaper_lem.pdf">SolarWinds Log &amp; Event Manager</a>.</li><li>Won a number of <a href="https://twitter.com/#!/trigeotweets/">awards and achievements</a> for outstanding products and customer satisfaction.</li></ul></div><div class="td"><div class="video-overview"><iframe width="336" height="190" src="http://www.youtube.com/embed/P4VhEo4Yzgg" frameborder="0" allowfullscreen=""></iframe></div></div></div></div>';
+html_elements += '<div class="table"><div class="tr work-header"><div class="td company big">Microsoft</div><div class="td range big">2000 - 2006</div></div></div>';
+html_elements += '<div class="table project-line"><div class="tr"><div class="td project">Microsoft Office Business Intelligence</div><div class="td range">2003 - 2006</div></div></div><div class="table"><div class="tr"><div class="td jobdesc">I spent three years as an SDET on the Office team at Microsoft.&nbsp;  Basically I wrote code to test other code.&nbsp; I developed a test harness using C# and wrote many automated test cases across two different business intelligence products.&nbsp; I developed an aptitude for quality and passion for security.&nbsp; I developed a great working relationship with many bright software engineers at Microsoft that continues today.<ul><li>Earned two Microsoft "ship-it" awards for <a href="http://news.microsoft.com/2005/10/23/microsoft-builds-business-intelligence-into-office-software/">Business Scorecard Manager</a> and an <a href="http://www.microsoft.com/download/en/details.aspx?id=7591">Excel Add-in</a>.</li></ul></div></div></div>';
+html_elements += '<div class="table project-line"><div class="tr"><div class="td project">Microsoft Certified Professional (Web Portal and Database)</div><div class="td range">2000 - 2003</div></div></div><div class="table"><div class="tr"><div class="td jobdesc">I helped test the massive data warehouse behind Microsoft\'s Certification system.&nbsp; This includes all MCP exam questions and answers for every quiz attempt.&nbsp; The production system required nearly 100% uptime for both reading and writing massive amounts of data.<ul><li>Test Lead over migrating the <a href="https://mcp.microsoft.com/authenticate/login.aspx">MCP website</a> users over to the Passport authentication system.</li></ul></div></div></div>';
+html_elements += '</div>';
+html_elements += '<div id="references-header" class="section-header"></div><div id="references-block" class="hideme">';
+html_elements += '<div class="quote">Dave Alger is a great asset to any team. He brings energy, ideas, and a can do attitude that is really great.<div class="author">&mdash; Chris Anderson (QA Lead at Tenable Network Security)</div></div>';
+html_elements += '<div class="quote">If he doesn\'t know the language today, give him the weekend and he\'ll have designed and published a new product for you in it.<div class="author">&mdash; Brandon Ward (Senior Experience Designer at Improving)</div></div>';
+html_elements += '<div class="quote">I have been continually impressed with his dedication, creativity, and attention to details. Working with him over the last few years has been a pleasure.<div class="author">&mdash; Robert Triebwasser (Senior Software Engineer at Zolon Tech)</div></div>';
+html_elements += '<div class="linkedin"><a href="http://goo.gl/aGImc">Connect with me on LinkedIn to learn more</a></div>';
+html_elements += '<span><div class="table"><div class="tr"><div class="td" style="text-align:center;line-height:60px;">Thank you for considering me as a new member of your team - <a href="https://twitter.com/intent/tweet?hashtags=RobotResume&amp;text=%40DaveAlger%20-%20Impressive%20resume%20of%20a%20UX%20developer%21%20&amp;url=http://davealger.info" target="_blank" style="color: #8bc !important;">@DaveAlger</a></div></div></div></span>'
+html_elements += '</div>';
+html_elements += '</div></div>';
+html_elements += '<style id="style-tag"></style>';
+html_elements += '<pre id="style-text"></pre>';
+$('body').append(html_elements);
+
+var isCommentOpen, writeByte, writeCode;
+isCommentOpen = false;
+window.buff = "";
+
+writeByte = function(ch) {
+	window.buff += ch;
+	
+    if (ch === '/' && isCommentOpen === false) {
+        isCommentOpen = true;
+        css_code = $('#style-text').html() + ch;
+    } else if (ch === '/' && isCommentOpen === true) {
+        isCommentOpen = false;
+        css_code = $('#style-text').html().replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>');
+    } else if (ch === ':') {
+        css_code = $('#style-text').html().replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:');
+    } else if (ch === ';') {
+        css_code = $('#style-text').html().replace(/([^:]*)$/, '<em class="value">$1</em>;');
+    } else if (ch === '{') {
+        css_code = $('#style-text').html().replace(/(.*)$/, '<em class="selector">$1</em>{');
+	} else {
+        css_code = $('#style-text').html() + ch;
+    }
+    $('#style-text').html(css_code);
+
+    return $('#style-tag').append(ch);
+};
+
+writeCode = function(message, index) {
+    var pre = document.getElementById('style-text');
+    if (pre && index < message.length) {
+        pre.scrollTop = pre.scrollHeight;
+        writeByte(message[index++]);
+        return setTimeout((function() {
+            return writeCode(message, index, replay_speed);
+        }), replay_speed);
+    }
+	else {
+		window.resumeComplete();
+	}
+};
+
+// fix browser specific quirkiness
+var ie9 = /MSIE 9/i.test(navigator.userAgent);
+var ie10 = /MSIE 10/i.test(navigator.userAgent);
+var ie11 = /rv:11.0/i.test(navigator.userAgent);
+var is_ie = (ie9 || ie10 || ie11);
+var is_chrome, is_safari;
+var ua = navigator.userAgent.toLowerCase(); 
+if (ua.indexOf('safari') != -1) { 
+	if (ua.indexOf('chrome') > -1) {
+		is_chrome = true;
+	}
+	else {
+		is_safari = true;
+	}
+}
+
+// replay css code
+var replay_speed = 10;
+
+if (window.location.hash === "") {
+	writeCode(css_code, 0);
+}
+else {
+	showAll();
+}
+
+// replay the css code faster while the mouse is down
+$(document).mouseup(function() { replay_speed = 10; }).mousedown(function() { replay_speed = 0; });
+
+}).call(this);
+
+$(document).ready(function () {	
+	setTimeout(function () {
+		if ( window.location.hash.length === 0 ) {
+			$("body").append('<div id="quicklinks"><a id="complete" class="btn" href="http://davealger.info#complete" onclick="showAll()">Show completed resume</a><a class="btn" href="http://davealger.info/davealger.pdf">Show printable version</a></div>');
+		}
+		console.clear();
+	}, 10000);
+	
+	$('#complete').click( function () {
+		showAll();
+	});
+	
+	if ( window.location.hash.length !== 0 ) {
+		showAll();
+	}
+	
+	//iOS Safari debug helper
+	//window.onerror = function(error) { alert(error); };
+});
+
+function resumeComplete() {
+	//if (log_interval) { clearInterval(log_interval); }
+	console.log("Jake Albaugh is the first person I know of to inject css code into the DOM character by character.");
+	console.log("Check out his article at the following link and give him some love...");
+	console.log("http://codepen.io/jakealbaugh/blog/self-coding-pens-and-finding-joy-in-useless-code");
+	console.log("Thanks for the inspiration Jake!");
+	console.log("%c                                                                ", "border-top: 4px dotted #dadada; font-size: 42px;");
+	console.log("%cTweet @DaveAlger if you need to hire a UX Developer - thank you!", "font-size: 42px; color: #fff; text-shadow: 0 1px 0 #eaeaea, 0 2px 0 #dadada, 0 3px 0 #bababa, 0 4px 0 #b0b0b0, 0 5px 0 #a0a0a0, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);");
+	console.log("%c                                                                ", "border-bottom: 4px dotted #dadada; font-size: 42px;");
+	
+	if ( $('#style-text').html() ) {
+		$('#style-text').html( $('#style-text').html().replace('@DaveAlger', '<a href="https://twitter.com/intent/tweet?hashtags=RobotResume&amp;text=%40DaveAlger%20-%20Give%20your%20awesome%20resume%20a%20belly%20rub%21%20&amp;url=http://davealger.info" target="_blank" style="border: 1px dotted #EFB571; color: #0af; padding: 2px 4px;">@DaveAlger</a>' ) );
+	}
+}
+
+function showAll() {
+	$('#style-tag').html($('#all_css').val());
+	$('#style-text').remove();
+	$('#quicklinks').remove();
+	$('#res_wrap').css('width','100%');
+	
+	setTimeout(function(){
+		console.clear();
+		window.resumeComplete();
+	}, 3000);
+}
+
+/*
+// cool but a little too expensive
+var log_interval = setInterval(function () {
+	console.clear();
+	console.log(window.buff);
+}, 100);
+*/
+</script>
+</body>
 </html>
